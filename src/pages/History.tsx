@@ -87,13 +87,15 @@ const History = () => {
         </div>
         
         <div className="flex items-center justify-between">
-          <Tabs defaultValue="all" className="w-full max-w-md">
-            <TabsList>
-              <TabsTrigger value="all">All</TabsTrigger>
-              <TabsTrigger value="earned">Points Earned</TabsTrigger>
-              <TabsTrigger value="redeemed">Points Redeemed</TabsTrigger>
-            </TabsList>
-          </Tabs>
+          <div className="w-full max-w-md">
+            <Tabs defaultValue="all" className="w-full">
+              <TabsList>
+                <TabsTrigger value="all">All</TabsTrigger>
+                <TabsTrigger value="earned">Points Earned</TabsTrigger>
+                <TabsTrigger value="redeemed">Points Redeemed</TabsTrigger>
+              </TabsList>
+            </Tabs>
+          </div>
           
           <div className="max-w-[180px]">
             <Select defaultValue="recent">
@@ -112,24 +114,9 @@ const History = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-4">
-            <TabsContent value="all" className="m-0">
-              {transactions.map((transaction) => (
-                <TransactionItem 
-                  key={transaction.id}
-                  type={transaction.type as "purchase" | "redemption"}
-                  businessType={transaction.businessType as "amka" | "mawimbi" | "kasa"}
-                  date={transaction.date}
-                  points={transaction.points}
-                  description={transaction.description}
-                  amount={transaction.amount}
-                />
-              ))}
-            </TabsContent>
-            
-            <TabsContent value="earned" className="m-0">
-              {transactions
-                .filter(t => t.type === "purchase")
-                .map((transaction) => (
+            <Tabs defaultValue="all">
+              <TabsContent value="all" className="m-0">
+                {transactions.map((transaction) => (
                   <TransactionItem 
                     key={transaction.id}
                     type={transaction.type as "purchase" | "redemption"}
@@ -139,24 +126,41 @@ const History = () => {
                     description={transaction.description}
                     amount={transaction.amount}
                   />
-              ))}
-            </TabsContent>
-            
-            <TabsContent value="redeemed" className="m-0">
-              {transactions
-                .filter(t => t.type === "redemption")
-                .map((transaction) => (
-                  <TransactionItem 
-                    key={transaction.id}
-                    type={transaction.type as "purchase" | "redemption"}
-                    businessType={transaction.businessType as "amka" | "mawimbi" | "kasa"}
-                    date={transaction.date}
-                    points={transaction.points}
-                    description={transaction.description}
-                    amount={transaction.amount}
-                  />
-              ))}
-            </TabsContent>
+                ))}
+              </TabsContent>
+              
+              <TabsContent value="earned" className="m-0">
+                {transactions
+                  .filter(t => t.type === "purchase")
+                  .map((transaction) => (
+                    <TransactionItem 
+                      key={transaction.id}
+                      type={transaction.type as "purchase" | "redemption"}
+                      businessType={transaction.businessType as "amka" | "mawimbi" | "kasa"}
+                      date={transaction.date}
+                      points={transaction.points}
+                      description={transaction.description}
+                      amount={transaction.amount}
+                    />
+                ))}
+              </TabsContent>
+              
+              <TabsContent value="redeemed" className="m-0">
+                {transactions
+                  .filter(t => t.type === "redemption")
+                  .map((transaction) => (
+                    <TransactionItem 
+                      key={transaction.id}
+                      type={transaction.type as "purchase" | "redemption"}
+                      businessType={transaction.businessType as "amka" | "mawimbi" | "kasa"}
+                      date={transaction.date}
+                      points={transaction.points}
+                      description={transaction.description}
+                      amount={transaction.amount}
+                    />
+                ))}
+              </TabsContent>
+            </Tabs>
           </div>
           
           <div className="space-y-6">

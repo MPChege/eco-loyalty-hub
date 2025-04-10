@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,6 +65,25 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom eco-friendly color palette
+				eco: {
+					// Amka Cafe colors
+					coffee: '#8B5A2B',
+					latte: '#D2B48C',
+					bean: '#654321',
+					// Mawimbi (ocean-themed) colors
+					ocean: '#1A5276',
+					wave: '#5DADE2',
+					seafoam: '#A3E4D7',
+					// Kasa Resort colors
+					leaf: '#2E7D32',
+					sand: '#F9E79F',
+					bamboo: '#7D6608',
+					// Shared eco-friendly colors
+					paper: '#F5F5DC',
+					moss: '#436E24',
+					earth: '#5D4037',
 				}
 			},
 			borderRadius: {
@@ -84,11 +107,20 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+			},
+			backgroundImage: {
+				'eco-gradient': 'linear-gradient(to right, #2E7D32, #1A5276)',
+				'reward-card': 'linear-gradient(135deg, #F9E79F 0%, #A3E4D7 100%)',
 			}
 		}
 	},

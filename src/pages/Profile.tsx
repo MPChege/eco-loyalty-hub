@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,21 +16,44 @@ import { User, Mail, Phone, Edit, Bell, Globe, ShieldCheck } from "lucide-react"
 const Profile = () => {
   const { toast } = useToast();
   
-  // This would come from API/backend in a real application
-  const userData = {
+  // State to manage user data
+  const [userData, setUserData] = useState({
     name: "Alex Johnson",
     email: "alex.johnson@example.com",
     phone: "+255 123 456 789",
-    memberId: "ECO-27491",
+    memberId: "AMKA-27491",
     points: 750,
-    tier: "Green",
-    nextTier: "Gold",
-    nextTierPoints: 1000,
+    tier: "Gold",
+    nextTier: "Platinum",
+    nextTierPoints: 1500,
     joinedDate: "January 15, 2025",
+  });
+  
+  // Form states
+  const [formData, setFormData] = useState({
+    name: userData.name,
+    email: userData.email,
+    phone: userData.phone,
+  });
+  
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
   };
   
   const handleSaveProfile = (e: React.FormEvent) => {
     e.preventDefault();
+    // Update user data with form data
+    setUserData(prev => ({
+      ...prev,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+    }));
+    
     toast({
       title: "Profile Updated",
       description: "Your profile information has been saved.",
@@ -112,7 +135,12 @@ const Profile = () => {
                         <Label htmlFor="name">Full Name</Label>
                         <div className="relative">
                           <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="name" className="pl-10" defaultValue={userData.name} />
+                          <Input 
+                            id="name" 
+                            className="pl-10" 
+                            value={formData.name} 
+                            onChange={handleInputChange}
+                          />
                         </div>
                       </div>
                       
@@ -120,7 +148,13 @@ const Profile = () => {
                         <Label htmlFor="email">Email Address</Label>
                         <div className="relative">
                           <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="email" type="email" className="pl-10" defaultValue={userData.email} />
+                          <Input 
+                            id="email" 
+                            type="email" 
+                            className="pl-10" 
+                            value={formData.email} 
+                            onChange={handleInputChange}
+                          />
                         </div>
                       </div>
                       
@@ -128,11 +162,16 @@ const Profile = () => {
                         <Label htmlFor="phone">Phone Number</Label>
                         <div className="relative">
                           <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input id="phone" className="pl-10" defaultValue={userData.phone} />
+                          <Input 
+                            id="phone" 
+                            className="pl-10" 
+                            value={formData.phone} 
+                            onChange={handleInputChange}
+                          />
                         </div>
                       </div>
                       
-                      <Button type="submit" className="w-full">
+                      <Button type="submit" className="w-full bg-yellow-400 text-black hover:bg-yellow-500">
                         <Edit className="mr-2 h-4 w-4" />
                         Save Changes
                       </Button>
@@ -181,7 +220,7 @@ const Profile = () => {
                         <Switch id="marketingNotif" />
                       </div>
                       
-                      <Button type="submit" className="w-full">
+                      <Button type="submit" className="w-full bg-yellow-400 text-black hover:bg-yellow-500">
                         <Bell className="mr-2 h-4 w-4" />
                         Update Preferences
                       </Button>
@@ -230,34 +269,18 @@ const Profile = () => {
                   <CardHeader>
                     <CardTitle>Your Digital Cards</CardTitle>
                     <CardDescription>
-                      Access your eco-friendly digital membership cards for all our partner establishments.
+                      Access your digital membership card for Amka Cafe.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <p className="text-sm text-muted-foreground">
-                      Simply show these digital cards at our partner establishments to earn and redeem points.
-                      No plastic cards needed - helping us reduce environmental impact together!
+                      Simply show this digital card at Amka Cafe to earn and redeem points.
+                      No plastic cards needed!
                     </p>
                     
                     <div className="space-y-4">
                       <LoyaltyCard
                         businessType="amka"
-                        customerName={userData.name}
-                        membershipId={userData.memberId}
-                        points={userData.points}
-                        tier={userData.tier}
-                      />
-                      
-                      <LoyaltyCard
-                        businessType="mawimbi"
-                        customerName={userData.name}
-                        membershipId={userData.memberId}
-                        points={userData.points}
-                        tier={userData.tier}
-                      />
-                      
-                      <LoyaltyCard
-                        businessType="kasa"
                         customerName={userData.name}
                         membershipId={userData.memberId}
                         points={userData.points}

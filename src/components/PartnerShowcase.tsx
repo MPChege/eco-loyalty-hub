@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -12,19 +11,15 @@ export function PartnerShowcase({ className }: PartnerShowcaseProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   // Partner data structure
-  const partners = [
+  const partnersData = [
     {
       id: "amka",
       name: "Amka Cafe",
-      logo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/24/9d/69/interior.jpg?w=900&h=500&s=1",
-      description: "Enjoy eco-friendly coffee and delicious sustainable meals with every visit.",
+      logo: "/public/lovable-uploads/3dab5f48-723d-4598-8d4b-deb9f4c625e5.png",
+      description: "Enjoy coffee and delicious meals with every visit.",
       images: [
         "/public/lovable-uploads/a24f8249-1ed0-401c-b6cf-2f76904aaef8.png",
-        "/public/lovable-uploads/80a941e7-af39-46e6-8edb-b1d7385c9117.png",
-        "/public/lovable-uploads/188843ee-2479-4fcb-b89d-27fa9b06ffb1.png",
-        "/public/lovable-uploads/7a0f02d3-44ea-4d88-a7fe-03b630226248.png",
-        "/public/lovable-uploads/9a433ae2-b4b0-49a9-bc2b-7435ee81b7b1.png",
-        "/public/lovable-uploads/3f3324e6-7774-4c31-9561-bbdd3675da20.png"
+        "/public/lovable-uploads/188843ee-2479-4fcb-b89d-27fa9b06ffb1.png"
       ]
     },
     {
@@ -45,7 +40,7 @@ export function PartnerShowcase({ className }: PartnerShowcaseProps) {
 
   // Navigation functions for image carousel
   const nextImage = () => {
-    const currentPartner = partners.find(p => p.id === "amka");
+    const currentPartner = partnersData.find(p => p.id === "amka");
     if (currentPartner) {
       setCurrentImageIndex((prevIndex) => 
         prevIndex === currentPartner.images.length - 1 ? 0 : prevIndex + 1
@@ -54,7 +49,7 @@ export function PartnerShowcase({ className }: PartnerShowcaseProps) {
   };
 
   const prevImage = () => {
-    const currentPartner = partners.find(p => p.id === "amka");
+    const currentPartner = partnersData.find(p => p.id === "amka");
     if (currentPartner) {
       setCurrentImageIndex((prevIndex) => 
         prevIndex === 0 ? currentPartner.images.length - 1 : prevIndex - 1
@@ -69,12 +64,12 @@ export function PartnerShowcase({ className }: PartnerShowcaseProps) {
         
         <Tabs defaultValue="amka">
           <TabsList className="mb-6 flex flex-wrap">
-            {partners.map(partner => (
+            {partnersData.map(partner => (
               <TabsTrigger key={partner.id} value={partner.id}>{partner.name}</TabsTrigger>
             ))}
           </TabsList>
           
-          {partners.map(partner => (
+          {partnersData.map(partner => (
             <TabsContent key={partner.id} value={partner.id}>
               <div className="flex flex-col lg:flex-row gap-6">
                 {/* Partner info */}

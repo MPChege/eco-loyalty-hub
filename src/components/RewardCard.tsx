@@ -42,13 +42,13 @@ export function RewardCard({
           <div>
             <h3 className="font-semibold text-lg">{title}</h3>
             {isEcoFriendly && (
-              <div className="flex items-center text-eco-leaf text-xs mt-1 gap-1">
+              <div className="flex items-center text-green-600 text-xs mt-1 gap-1">
                 <Leaf className="h-3 w-3" />
                 <span>Eco-friendly reward</span>
               </div>
             )}
           </div>
-          <div className="bg-accent text-accent-foreground px-2 py-1 rounded-md text-sm font-medium">
+          <div className="bg-yellow-400 text-black px-2 py-1 rounded-md text-sm font-medium">
             {pointsCost} points
           </div>
         </div>
@@ -58,7 +58,7 @@ export function RewardCard({
         <Button
           onClick={onRedeem}
           disabled={!available}
-          className="w-full"
+          className={cn("w-full", available ? "bg-yellow-400 text-black hover:bg-yellow-500" : "")}
           variant={available ? "default" : "outline"}
         >
           <Gift className="mr-2 h-4 w-4" />

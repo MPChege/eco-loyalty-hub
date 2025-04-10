@@ -34,7 +34,7 @@ const tiers = [
       "Invitations to exclusive tasting events",
       "Priority seating reservations"
     ],
-    color: "bg-amber-400"
+    color: "bg-yellow-400"
   },
   {
     name: "Platinum",
@@ -45,7 +45,7 @@ const tiers = [
       "Access to a dedicated concierge service for reservations",
       "Invitations to VIP events and chef's table experiences"
     ],
-    color: "bg-slate-700"
+    color: "bg-gray-700"
   }
 ];
 
@@ -55,7 +55,7 @@ export function TierInfo({ currentTier }: TierInfoProps) {
       <CardHeader className="pb-2">
         <CardTitle className="text-lg">Loyalty Tiers</CardTitle>
         <CardDescription>
-          Your current tier: <span className="inline-block"><Badge className={`${currentTier === 'Silver' ? 'bg-gray-300' : currentTier === 'Gold' ? 'bg-amber-400' : 'bg-slate-700'} text-black`}>{currentTier}</Badge></span>
+          Your current tier: <span className="inline-block"><Badge className={`${currentTier === 'Silver' ? 'bg-gray-300' : currentTier === 'Gold' ? 'bg-yellow-400' : 'bg-gray-700'} text-black`}>{currentTier}</Badge></span>
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -63,7 +63,7 @@ export function TierInfo({ currentTier }: TierInfoProps) {
           {tiers.map((tier) => (
             <div 
               key={tier.name} 
-              className={`p-4 rounded-md ${tier.name === currentTier ? 'border-2 border-primary' : 'border border-muted'}`}
+              className={`p-4 rounded-md ${tier.name === currentTier ? 'border-2 border-yellow-400' : 'border border-muted'}`}
             >
               <div className="flex items-center gap-2 mb-2">
                 <div className={`w-4 h-4 rounded-full ${tier.color}`}></div>
@@ -77,7 +77,7 @@ export function TierInfo({ currentTier }: TierInfoProps) {
               <ul className="text-sm space-y-1">
                 {tier.benefits.map((benefit, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    <Check className="h-4 w-4 text-yellow-500 mt-0.5 flex-shrink-0" />
                     <span>{benefit}</span>
                   </li>
                 ))}

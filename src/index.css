@@ -8,73 +8,73 @@
 @layer base {
   :root {
     --background: 60 30% 98%;
-    --foreground: 20 14.3% 4.1%;
+    --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 140 40% 30%;
-    --primary-foreground: 144 70% 96%;
+    --primary: 50 100% 50%;
+    --primary-foreground: 0 0% 10%;
 
-    --secondary: 203 70% 30%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 60 100% 97%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 60 15% 90%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 43 96% 80%;
-    --accent-foreground: 20 14.3% 4.1%;
+    --accent: 50 100% 90%;
+    --accent-foreground: 0 0% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
-    --ring: 142.1 76.2% 36.3%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 50 100% 50%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 130 30% 96%;
-    --sidebar-foreground: 20 14.3% 4.1%;
-    --sidebar-primary: 140 40% 30%;
-    --sidebar-primary-foreground: 144 70% 96%;
-    --sidebar-accent: 43 96% 80%;
-    --sidebar-accent-foreground: 20 14.3% 4.1%;
-    --sidebar-border: 120 10% 85%;
-    --sidebar-ring: 142.1 76.2% 36.3%;
+    --sidebar-background: 0 0% 97%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 50 100% 50%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 50 100% 90%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 85%;
+    --sidebar-ring: 50 100% 50%;
   }
 
   .dark {
-    --background: 20 14.3% 4.1%;
+    --background: 0 0% 10%;
     --foreground: 60 9.1% 97.8%;
 
-    --card: 20 14.3% 4.1%;
+    --card: 0 0% 15%;
     --card-foreground: 60 9.1% 97.8%;
 
-    --popover: 20 14.3% 4.1%;
+    --popover: 0 0% 15%;
     --popover-foreground: 60 9.1% 97.8%;
 
-    --primary: 142.1 70.6% 45.3%;
-    --primary-foreground: 144.9 80.4% 10%;
+    --primary: 50 100% 50%;
+    --primary-foreground: 0 0% 10%;
 
-    --secondary: 203 73.8% 36.3%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 60 9.1% 97.8%;
+    --secondary-foreground: 0 0% 10%;
 
     --muted: 12 6.5% 15.1%;
     --muted-foreground: 24 5.4% 63.9%;
 
-    --accent: 43 96% 80%;
-    --accent-foreground: 20 14.3% 4.1%;
+    --accent: 50 100% 40%;
+    --accent-foreground: 60 9.1% 97.8%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 60 9.1% 97.8%;
 
     --border: 12 6.5% 15.1%;
     --input: 12 6.5% 15.1%;
-    --ring: 142.4 71.8% 29.2%;
+    --ring: 50 100% 50%;
   }
 }
 
@@ -108,13 +108,13 @@
 
 @layer components {
   .eco-card {
-    @apply rounded-xl shadow-md overflow-hidden border border-eco-leaf/10 transition-all hover:shadow-lg;
+    @apply rounded-xl shadow-md overflow-hidden border border-yellow-400/20 transition-all hover:shadow-lg;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
     backdrop-filter: blur(10px);
   }
   
   .tab-active {
-    @apply text-primary font-medium border-b-2 border-primary;
+    @apply text-black font-medium border-b-2 border-yellow-400;
   }
   
   .loyalty-button {
@@ -122,18 +122,18 @@
   }
   
   .loyalty-button-primary {
-    @apply loyalty-button bg-primary text-primary-foreground hover:bg-primary/90;
+    @apply loyalty-button bg-yellow-400 text-black hover:bg-yellow-500;
   }
   
   .loyalty-button-secondary {
-    @apply loyalty-button bg-secondary text-secondary-foreground hover:bg-secondary/90;
+    @apply loyalty-button bg-black text-white hover:bg-gray-800;
   }
   
   .loyalty-button-outline {
-    @apply loyalty-button border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+    @apply loyalty-button border border-input bg-background hover:bg-yellow-100 hover:text-black;
   }
   
   .points-badge {
-    @apply px-3 py-1 rounded-full text-sm font-medium bg-eco-moss text-white;
+    @apply px-3 py-1 rounded-full text-sm font-medium bg-yellow-400 text-black;
   }
 }

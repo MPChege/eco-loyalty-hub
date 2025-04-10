@@ -13,11 +13,11 @@ const Rewards = () => {
   const [searchQuery, setSearchQuery] = useState("");
   
   // This would come from API in a real application
-  const userData = {
+  const [userData, setUserData] = useState({
     points: 750,
-  };
+  });
   
-  const rewardsList = [
+  const [rewardsList, setRewardsList] = useState([
     {
       id: 1,
       title: "Free Coffee",
@@ -94,12 +94,34 @@ const Rewards = () => {
       imageUrl: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
       isEcoFriendly: true,
     },
-  ];
+  ]);
   
   const handleRewardRedeem = (rewardId: number) => {
+    // Find the reward
+    const rewardToRedeem = rewardsList.find(reward => reward.id === rewardId);
+    
+    if (!rewardToRedeem) return;
+    
+    // Check if user has enough points
+    if (userData.points < rewardToRedeem.pointsCost) {
+      toast({
+        title: "Not Enough Points",
+        description: `You need ${rewardToRedeem.pointsCost - userData.points} more points to redeem this reward.`,
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Deduct points and update UI
+    setUserData(prev => ({
+      ...prev,
+      points: prev.points - rewardToRedeem.pointsCost
+    }));
+    
+    // Notify user
     toast({
-      title: "Reward Added to Your Wallet",
-      description: "You can view and use it from your rewards page",
+      title: "Reward Redeemed!",
+      description: `You have successfully redeemed ${rewardToRedeem.title}`,
     });
   };
   
@@ -134,7 +156,7 @@ const Rewards = () => {
         <div>
           <h1 className="text-3xl font-bold">Rewards</h1>
           <p className="text-muted-foreground mt-1">
-            Browse and redeem rewards from our eco-friendly partners
+            Browse and redeem rewards with your points
           </p>
         </div>
         
@@ -150,7 +172,7 @@ const Rewards = () => {
           </div>
           <div className="flex items-center gap-2">
             <Filter className="h-4 w-4 text-muted-foreground" />
-            <Badge variant="outline" className="bg-primary/10 hover:bg-primary/20">
+            <Badge variant="outline" className="bg-yellow-400/10 hover:bg-yellow-400/20 text-black">
               Your Points: {userData.points}
             </Badge>
           </div>

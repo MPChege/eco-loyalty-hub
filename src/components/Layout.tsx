@@ -62,7 +62,7 @@ export function Layout({ children }: LayoutProps) {
           <div className="flex items-center mb-8">
             <div className="h-10 w-24 relative">
               <img 
-                src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/24/9d/69/interior.jpg?w=900&h=500&s=1"
+                src="/public/lovable-uploads/3dab5f48-723d-4598-8d4b-deb9f4c625e5.png"
                 alt="Amka Cafe Logo" 
                 className="h-full w-full object-contain" 
               />
@@ -78,8 +78,8 @@ export function Layout({ children }: LayoutProps) {
                 className={cn(
                   "flex items-center px-4 py-3 text-base font-medium rounded-md",
                   location.pathname === item.href
-                    ? "bg-primary/10 text-primary"
-                    : "hover:bg-accent hover:text-accent-foreground"
+                    ? "bg-yellow-400 text-black"
+                    : "hover:bg-yellow-100 hover:text-black"
                 )}
               >
                 <item.icon className="h-5 w-5 mr-3" />
@@ -106,7 +106,7 @@ export function Layout({ children }: LayoutProps) {
           <div className="flex items-center mb-8 px-2">
             <div className="h-10 w-24 relative">
               <img 
-                src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/24/9d/69/interior.jpg?w=900&h=500&s=1"
+                src="/public/lovable-uploads/3dab5f48-723d-4598-8d4b-deb9f4c625e5.png"
                 alt="Amka Cafe Logo" 
                 className="h-full w-full object-contain" 
               />
@@ -121,8 +121,8 @@ export function Layout({ children }: LayoutProps) {
                 className={cn(
                   "group flex items-center px-4 py-3 text-sm font-medium rounded-md transition-colors",
                   location.pathname === item.href
-                    ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                    : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                    ? "bg-yellow-400 text-black"
+                    : "text-sidebar-foreground hover:bg-yellow-100 hover:text-black"
                 )}
               >
                 <item.icon className="h-5 w-5 mr-3" />

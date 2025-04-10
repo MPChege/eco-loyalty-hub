@@ -3,6 +3,7 @@ import React from "react";
 import { Layout } from "@/components/Layout";
 import { LoyaltyCard } from "@/components/LoyaltyCard";
 import { PointsProgress } from "@/components/PointsProgress";
+import { PartnerShowcase } from "@/components/PartnerShowcase";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -167,6 +168,9 @@ const Dashboard = () => {
             </Tabs>
           </div>
         </div>
+        
+        {/* New Partner Showcase Component */}
+        <PartnerShowcase className="mb-8" />
         
         <div>
           <div className="flex items-center justify-between mb-4">

@@ -62,7 +62,7 @@ export function Layout({ children }: LayoutProps) {
           <div className="flex items-center mb-8">
             <div className="h-10 w-24 relative">
               <img 
-                src="/public/lovable-uploads/60f18ef5-192e-40be-ad39-c1b132612ec3.png"
+                src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/24/9d/69/interior.jpg?w=900&h=500&s=1"
                 alt="Amka Cafe Logo" 
                 className="h-full w-full object-contain" 
               />
@@ -106,7 +106,7 @@ export function Layout({ children }: LayoutProps) {
           <div className="flex items-center mb-8 px-2">
             <div className="h-10 w-24 relative">
               <img 
-                src="/public/lovable-uploads/60f18ef5-192e-40be-ad39-c1b132612ec3.png"
+                src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/24/9d/69/interior.jpg?w=900&h=500&s=1"
                 alt="Amka Cafe Logo" 
                 className="h-full w-full object-contain" 
               />

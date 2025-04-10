@@ -16,7 +16,7 @@ export function PartnerShowcase({ className }: PartnerShowcaseProps) {
     {
       id: "amka",
       name: "Amka Cafe",
-      logo: "/public/lovable-uploads/60f18ef5-192e-40be-ad39-c1b132612ec3.png",
+      logo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/24/9d/69/interior.jpg?w=900&h=500&s=1",
       description: "Enjoy eco-friendly coffee and delicious sustainable meals with every visit.",
       images: [
         "/public/lovable-uploads/a24f8249-1ed0-401c-b6cf-2f76904aaef8.png",

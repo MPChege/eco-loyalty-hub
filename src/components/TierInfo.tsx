@@ -55,7 +55,7 @@ export function TierInfo({ currentTier }: TierInfoProps) {
       <CardHeader className="pb-2">
         <CardTitle className="text-lg">Loyalty Tiers</CardTitle>
         <CardDescription>
-          Your current tier: <Badge className={`${currentTier === 'Silver' ? 'bg-gray-300' : currentTier === 'Gold' ? 'bg-amber-400' : 'bg-slate-700'} text-black`}>{currentTier}</Badge>
+          Your current tier: <span className="inline-block"><Badge className={`${currentTier === 'Silver' ? 'bg-gray-300' : currentTier === 'Gold' ? 'bg-amber-400' : 'bg-slate-700'} text-black`}>{currentTier}</Badge></span>
         </CardDescription>
       </CardHeader>
       <CardContent>

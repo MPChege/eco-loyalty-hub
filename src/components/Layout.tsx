@@ -10,7 +10,7 @@ import {
   Menu,
   X,
   LogOut,
-  Leaf
+  Coffee
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
@@ -60,10 +60,14 @@ export function Layout({ children }: LayoutProps) {
       )}>
         <div className="flex flex-col h-full p-6">
           <div className="flex items-center mb-8">
-            <div className="bg-primary rounded-full p-2">
-              <Leaf className="h-6 w-6 text-primary-foreground" />
+            <div className="h-10 w-24 relative">
+              <img 
+                src="/public/lovable-uploads/60f18ef5-192e-40be-ad39-c1b132612ec3.png"
+                alt="Amka Cafe Logo" 
+                className="h-full w-full object-contain" 
+              />
             </div>
-            <h1 className="text-xl font-bold ml-3">Eco Loyalty</h1>
+            <h1 className="text-xl font-bold ml-3">Amka Cafe</h1>
           </div>
           <nav className="flex-1 space-y-4">
             {navigation.map((item) => (
@@ -100,10 +104,14 @@ export function Layout({ children }: LayoutProps) {
       <div className="hidden md:flex md:flex-col md:fixed md:inset-y-0 md:w-64 md:bg-sidebar">
         <div className="flex-1 flex flex-col pt-5 px-4 pb-4 overflow-y-auto">
           <div className="flex items-center mb-8 px-2">
-            <div className="bg-primary rounded-full p-2">
-              <Leaf className="h-6 w-6 text-primary-foreground" />
+            <div className="h-10 w-24 relative">
+              <img 
+                src="/public/lovable-uploads/60f18ef5-192e-40be-ad39-c1b132612ec3.png"
+                alt="Amka Cafe Logo" 
+                className="h-full w-full object-contain" 
+              />
             </div>
-            <h1 className="text-xl font-bold ml-3">Eco Loyalty</h1>
+            <h1 className="text-xl font-bold ml-3">Amka Cafe</h1>
           </div>
           <nav className="flex-1 space-y-2 px-2">
             {navigation.map((item) => (

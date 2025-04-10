@@ -7,10 +7,11 @@ import { PartnerShowcase } from "@/components/PartnerShowcase";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Gift, Zap, TrendingUp, ArrowRight } from "lucide-react";
+import { Gift, Zap, TrendingUp, ArrowRight, Coffee } from "lucide-react";
 import { RewardCard } from "@/components/RewardCard";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
+import { TierInfo } from "@/components/TierInfo";
 
 const Dashboard = () => {
   const { toast } = useToast();
@@ -18,11 +19,11 @@ const Dashboard = () => {
   // This would come from API/backend in a real application
   const userData = {
     name: "Alex Johnson",
-    memberId: "ECO-27491",
+    memberId: "AMKA-27491",
     points: 750,
-    tier: "Green",
-    nextTier: "Gold",
-    nextTierPoints: 1000,
+    tier: "Gold",
+    nextTier: "Platinum",
+    nextTierPoints: 1500,
     lastVisit: "Amka Cafe",
   };
   
@@ -34,7 +35,6 @@ const Dashboard = () => {
       pointsCost: 200,
       businessType: "amka",
       imageUrl: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      isEcoFriendly: true,
     },
     {
       id: 2,
@@ -67,7 +67,7 @@ const Dashboard = () => {
         <div>
           <h1 className="text-3xl font-bold">Welcome back, {userData.name.split(' ')[0]}!</h1>
           <p className="text-muted-foreground mt-1">
-            Your eco-friendly rewards await. Start earning and redeeming today!
+            Your Amka Cafe rewards await. Start earning and redeeming today!
           </p>
         </div>
         
@@ -122,8 +122,8 @@ const Dashboard = () => {
                       <p className="text-sm text-muted-foreground">Membership Level</p>
                       <p className="text-2xl font-bold">{userData.tier}</p>
                     </div>
-                    <div className="h-12 w-12 bg-eco-leaf/10 rounded-full flex items-center justify-center">
-                      <TrendingUp className="h-6 w-6 text-eco-leaf" />
+                    <div className="h-12 w-12 bg-amber-400/10 rounded-full flex items-center justify-center">
+                      <TrendingUp className="h-6 w-6 text-amber-400" />
                     </div>
                   </CardContent>
                 </Card>
@@ -134,8 +134,8 @@ const Dashboard = () => {
                       <p className="text-sm text-muted-foreground">Last Visit</p>
                       <p className="text-2xl font-bold">{userData.lastVisit}</p>
                     </div>
-                    <div className="h-12 w-12 bg-eco-coffee/10 rounded-full flex items-center justify-center">
-                      <Gift className="h-6 w-6 text-eco-coffee" />
+                    <div className="h-12 w-12 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Coffee className="h-6 w-6 text-primary" />
                     </div>
                   </CardContent>
                 </Card>
@@ -169,7 +169,10 @@ const Dashboard = () => {
           </div>
         </div>
         
-        {/* New Partner Showcase Component */}
+        {/* Add Tier Info Component */}
+        <TierInfo currentTier={userData.tier as "Silver" | "Gold" | "Platinum"} />
+        
+        {/* Amka Cafe Showcase */}
         <PartnerShowcase className="mb-8" />
         
         <div>
@@ -191,7 +194,7 @@ const Dashboard = () => {
                 description={reward.description}
                 pointsCost={reward.pointsCost}
                 imageUrl={reward.imageUrl}
-                isEcoFriendly={reward.isEcoFriendly}
+                isEcoFriendly={false}
                 onRedeem={() => handleRewardRedeem(reward.id)}
                 available={userData.points >= reward.pointsCost}
               />
